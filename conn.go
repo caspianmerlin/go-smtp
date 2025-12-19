@@ -230,7 +230,7 @@ func (c *Conn) handleGreet(enhanced bool, arg string) {
 	c.helo = domain
 
 	// RFC 5321: "An EHLO command MAY be issued by a client later in the session"
-	if c.session != nil {
+	if c.Session() != nil {
 		// RFC 5321: "... the SMTP server MUST clear all buffers
 		// and reset the state exactly as if a RSET command has been issued."
 		c.reset()
