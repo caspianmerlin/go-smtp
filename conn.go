@@ -238,7 +238,7 @@ func (c *Conn) handleGreet(enhanced bool, arg string) {
 		sess, err := c.server.Backend.NewSession(c)
 		if err != nil {
 			c.helo = ""
-			c.writeError(451, EnhancedCode{4, 0, 0}, err)
+			c.writeResponse(451, EnhancedCode{4, 0, 0}, err.Error())
 			return
 		}
 
